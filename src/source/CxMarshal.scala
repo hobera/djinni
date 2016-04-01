@@ -313,7 +313,7 @@ def boxedTypename(td: TypeDecl) = td.body match {
         case DInterface =>
           val ext = d.body.asInstanceOf[Interface].ext
           if (ext.cpp && !ext.cx)
-            (idCx.ty(d.name), true)
+            (withNs(namespace, idCx.ty(d.name)), true)
           else
             (withNs(namespace, idCx.ty(d.name)), true)
       }
