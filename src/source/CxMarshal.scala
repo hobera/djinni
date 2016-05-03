@@ -151,7 +151,7 @@ private def helperTemplates(tm: MExpr): String = {
 
 def references(m: Meta, exclude: String): Seq[SymbolReference] = m match {
   case p: MPrimitive => p.idlName match {
-    case "i8" | "i16" | "i32" | "i64" => List()
+    case "i8" | "i16" | "i32" | "i64" => List(ImportRef("<stdint.h>"))
     case _ => List()
  }
   case MString | MDate | MBinary | MOptional | MList | MSet | MMap  => List()
