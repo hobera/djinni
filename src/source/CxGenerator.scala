@@ -375,7 +375,7 @@ class CxGenerator(spec: Spec) extends Generator(spec) {
 
       writeCxFile(ident.name, origin, refs.cx, w=>{})
 
-      refs.hx.foreach(hxy=> refs.hx += hxy.replace(".h", ".hpp"))
+      refs.hx.foreach(hxy=> refs.hx += hxy.replace(".h\"", ".hpp\""))
       refs.hx += "#include " + q(spec.cxIncludeCppPrefix + spec.cppFileIdentStyle(ident.name) + "." + spec.cppHeaderExt)
       refs.hx += translationHeader()
       refs.hx += cppHeader(ident.name)
